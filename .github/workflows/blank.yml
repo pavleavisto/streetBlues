@@ -24,7 +24,7 @@ jobs:
     steps:
     
       - name: Checkout code
-        run: git clone https://github.com/pavleavisto $GITHUB_WORKSPACE
+        run: git clone https://github.com/pavleavisto/streetBlues $GITHUB_WORKSPACE
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
