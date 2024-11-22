@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       username:
-        description: 'Username '
+        description: 'Username'
         required: true
         default: 'pavleavisto'
 
