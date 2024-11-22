@@ -27,4 +27,4 @@ jobs:
         run: echo ${{secrets.MY_FIRST_SECRET}}
 
       - name: Log the variable
-        run: echo MY_FIRST_VARIABLE
+        run: echo ${{ vars.MY_FIRST_VARIABLE }}
