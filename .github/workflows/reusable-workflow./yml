@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  release:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+  
+jobs:
+  create-file:
+    runs-on: self-hosted
+    
+    steps:
+      - name: Create file with current date and time
+        run: echo "Current date and time: $(date)" > datetime.txt
+
+      - name: Upload file as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: datetime-file
+          path: datetime.txt
