@@ -7,6 +7,11 @@ on:
     branches: [ "main" ]
 
   workflow_dispatch:
+    inputs:
+      username:
+        description: 'Username '
+        required: true
+        default: 'pavleavisto'
 
 jobs:
   build:
@@ -34,3 +39,11 @@ jobs:
 
       - name: Log the variable
         run: echo ${{ vars.MY_FIRST_VARIABLE }}
+
+  input-test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Greeting job that includes the input
+        run: echo "Welcome back #{{github.event.inputs.username}}!"
+        
