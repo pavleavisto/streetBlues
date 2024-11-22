@@ -45,5 +45,5 @@ jobs:
 
     steps:
       - name: Greeting job that includes the input
-        run: echo "Welcome back #{{github.event.inputs.username}}!"
+        run: echo "Welcome back ${{ github.event.inputs.username }}!"
         
