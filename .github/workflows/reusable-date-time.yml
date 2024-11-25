@@ -1,0 +1,23 @@
+name: Reusable Date-Time Workflow
+
+on:
+  workflow_call:
+    inputs:
+      filename:
+        description: 'The name of the file to create'
+        required: true
+        type: string
+
+jobs:
+  create-date-time-file:
+    runs-on: self-hosted
+
+    steps:
+      - name: Create a text file with current date and time
+        run: "echo 'Current Date and Time: $(date)' > ${{ inputs.filename }}"
+
+      - name: Upload the file as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Date-Time Artifact
+          path: ${{ inputs.filename }}
