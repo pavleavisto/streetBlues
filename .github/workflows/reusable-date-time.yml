@@ -14,7 +14,8 @@ jobs:
 
     steps:
       - name: Create a text file with current date and time
-        run: echo "Current Date and Time: $(date)" > ${{ inputs.filename }}
+        run: |
+          echo "Current Date and Time: $(date)" > ${{ inputs.filename }}
 
       - name: Upload the file as an artifact
         uses: actions/upload-artifact@v3
