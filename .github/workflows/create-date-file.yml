@@ -1,0 +1,24 @@
+name: Create date text file
+
+on:
+  workflow_call:
+    inputs:
+      filename:
+        description: 'Name of the output file'
+        required: true
+        type: string
+        default: 'current_date.txt'
+
+jobs:
+  create_file:
+    runs-on: self-hosted
+    steps:
+      - name: Create date text file
+        run: |
+          echo "Current Date and Time: $(date)" > ${{ inputs.filename }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: date-file
+          path: ${{ inputs.filename }}
