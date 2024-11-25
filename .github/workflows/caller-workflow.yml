@@ -1,0 +1,12 @@
+name: Caller Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call_create_date_file:
+    uses: ./.github/workflows/create-date-file.yml
+    with:
+      filename: 'my_date_file.txt'
